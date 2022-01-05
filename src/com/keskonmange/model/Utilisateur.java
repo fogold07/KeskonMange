@@ -1,40 +1,62 @@
 package com.keskonmange.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
-@Entity
-public class Utilisateur {
+/**
+ * Classe qui définie l'utilisateur ainsi que si oui ou non il est administrateur d'un groupe.
+ * 
+ * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ *
+ */
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+@Entity
+@Table(name = "UTILISATEUR")
+public class Utilisateur extends Personne {
+
+	@Column(name = "EMAIL", length = 200, nullable = false)
 	private String email;
+	
+	@Column(name = "PWD", length = 200, nullable = false)
 	private String pwd;
 	
-	//TODO : add mapping @OneToMany and @ManyToMany
+	@ManyToMany(mappedBy="administrateurs")
+	private Set<Groupe> groupes;
+	
 	
 	public Utilisateur() {
+	}
+
+	public Utilisateur(String email, String pwd) {
 		super();
+		this.email = email;
+		this.pwd = pwd;
 	}
-	
-	public Long getId() {
-		return id;
-	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public String getPwd() {
 		return pwd;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public Set<Groupe> getGroupes() {
+		return groupes;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
+
+	public void setGroupes(Set<Groupe> groupes) {
+		this.groupes = groupes;
+	}
+
 
 }

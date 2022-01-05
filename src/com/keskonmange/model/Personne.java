@@ -1,33 +1,84 @@
 package com.keskonmange.model;
 
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+import com.keskonmange.enumeration.Genre;
+
+/**
+ * Classe qui définit les attributs d'une personne enregistrée dans l'application.
+ * 
+ * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ *
+ */
 
 @Entity
+@Table(name = "PERSONNE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Personne {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nom;
-	private String prenom;
-	private String sexe;
-	private LocalDate dateNaissance;
-	private Integer taille;
-	private Integer poids;
-	private Integer objectifCalorique;
-	private String urlPhoto;
+	private Integer id;
 	
-	//TODO : add mapping @OneToMany and @ManyToMany
+	@Column(name = "NOM", length = 50, nullable = true)
+	private String nom;
+	
+	@Column(name = "PRENOM", length = 50, nullable = true)
+	private String prenom;
+	
+	@Enumerated(EnumType.STRING)
+    @Column(name="GENRE",columnDefinition = "enum('Masculin', 'Feminin')")
+	private Genre genre ;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATE_NAISSANCE", nullable=true)
+	private Date dateNaissance;
+	
+	@Column(name = "TAILLE", nullable = true)
+	private Integer taille;
+	
+	@Column(name = "POIDS", nullable = true)
+	private Integer poids;
+	
+	@Column(name = "OBJECTIF_CALORIQUE", nullable = true)
+	private Integer objectifCalorique;
+	
+	@Column(name = "URL_PHOTO", length = 200, nullable = true)
+	private String urlPhoto;
 
+	@OneToOne
+	private Activite activite;
+	
+	@OneToMany(mappedBy="personneContrainte")
+	private Set<Contrainte> contraintes;
+	
+	@ManyToMany(mappedBy="groupePersonnes")
+	private Set<Groupe> groupes;	
+	
+	@OneToMany(mappedBy="absencePersonne")
+	private Set<Absence> absences;	
+	
+	
 	public Personne() {
-		super();
 	}
 
-	public Long getId() {
+	public Personne(String nom, String prenom, Genre genre, Date dateNaissance, Integer taille,
+			Integer poids, Integer objectifCalorique, String urlPhoto) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.genre = genre;
+		this.dateNaissance = dateNaissance;
+		this.taille = taille;
+		this.poids = poids;
+		this.objectifCalorique = objectifCalorique;
+		this.urlPhoto = urlPhoto;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
@@ -39,11 +90,11 @@ public class Personne {
 		return prenom;
 	}
 
-	public String getSexe() {
-		return sexe;
+	public Genre getGenre() {
+		return genre;
 	}
 
-	public LocalDate getDateNaissance() {
+	public Date getDateNaissance() {
 		return dateNaissance;
 	}
 
@@ -63,7 +114,23 @@ public class Personne {
 		return urlPhoto;
 	}
 
-	public void setId(Long id) {
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public Set<Contrainte> getContraintes() {
+		return contraintes;
+	}
+
+	public Set<Groupe> getGroupes() {
+		return groupes;
+	}
+
+	public Set<Absence> getAbsences() {
+		return absences;
+	}
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -75,11 +142,11 @@ public class Personne {
 		this.prenom = prenom;
 	}
 
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
-	public void setDateNaissance(LocalDate dateNaissance) {
+	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 
@@ -98,5 +165,23 @@ public class Personne {
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+
+	public void setContraintes(Set<Contrainte> contraintes) {
+		this.contraintes = contraintes;
+	}
+
+	public void setGroupes(Set<Groupe> groupes) {
+		this.groupes = groupes;
+	}
+
+	public void setAbsences(Set<Absence> absences) {
+		this.absences = absences;
+	}
+
+	
 
 }

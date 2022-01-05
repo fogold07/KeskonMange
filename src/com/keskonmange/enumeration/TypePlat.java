@@ -1,5 +1,5 @@
 package com.keskonmange.enumeration;
 
 public enum TypePlat {
-	ENTREE, PLAT_PRINCIPAL, DESSERT
+	Entree, PlatPrincipal, Dessert, BoissonChaude, Cereales, Laitage
 }

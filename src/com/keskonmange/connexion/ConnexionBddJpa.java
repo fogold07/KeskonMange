@@ -13,7 +13,7 @@ public class ConnexionBddJpa {
 
 	
 	public static EntityManagerFactory getConnexionJpa() {
-		return getConnexionJpa("kkm-peristence-unit");
+		return getConnexionJpa("kkm_junit");
 	}
 	
 	public static EntityManagerFactory getConnexionJpa(String unitePersistense) {
