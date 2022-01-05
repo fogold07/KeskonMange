@@ -76,23 +76,6 @@ public class PersonneServiceTest {
 
 	}
 
-	/*
-	 @Test
-	 public void test_utilisateur_creer() {
-		 Utilisateur u = null;
-		 
-		 try {
-//Utilisateur(String nom, String prenom, Genre genre, Date dateNaissance, Integer taille, Integer poids, Integer objectifCalorique, String urlPhoto, String email, String pwd)
-			Utilisateur user = new Utilisateur("DUPONT", "Vincent", Genre.Masculin, new SimpleDateFormat("dd/MM/yyyy").parse("21/11/1990"), 175, 80, 100, "", "vdupont@gmail.com", "azerty");
-			u = personneService.createUtilisateur(emf, user);
-			System.out.println("user add: "+ u.getEmail());
-			assertNotNull(u);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		 
-	 }
-*/
 	
 
 
