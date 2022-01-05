@@ -1,8 +1,11 @@
 package com.keskonmange.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import com.keskonmange.enumeration.Genre;
 
 /**
  * Classe qui définie l'utilisateur ainsi que si oui ou non il est administrateur d'un groupe.
@@ -28,11 +31,22 @@ public class Utilisateur extends Personne {
 	public Utilisateur() {
 	}
 
+
+
+	public Utilisateur(String nom, String prenom, Genre genre, Date dateNaissance, Integer taille, Integer poids, Integer objectifCalorique, String urlPhoto, String email, String pwd) {
+		super(nom, prenom, genre, dateNaissance, taille, poids, objectifCalorique, urlPhoto);
+		this.email = email;
+		this.pwd = pwd;
+	}
+
+
 	public Utilisateur(String email, String pwd) {
 		super();
 		this.email = email;
 		this.pwd = pwd;
 	}
+
+
 
 	public String getEmail() {
 		return email;
