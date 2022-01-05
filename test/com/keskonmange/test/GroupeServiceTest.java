@@ -2,6 +2,9 @@ package com.keskonmange.test;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,10 +36,11 @@ public class GroupeServiceTest {
 	 * Test unitaire sur la création d'un groupe.
 	 * 
 	 * @throws SQLException
+	 * @throws NoSuchAlgorithmException 
 	 * 
 	 */
 	@Test
-	public void test_groupe_creer() throws SQLException {
+	public void test_groupe_creer() throws SQLException, NoSuchAlgorithmException {
 		
 		Groupe gpe = null; 
 		
@@ -44,8 +48,19 @@ public class GroupeServiceTest {
 			Personne p =  new Personne("DUMOND-GUILLON", "Stephanie", Genre.Feminin, new SimpleDateFormat("dd/MM/yyyy").parse("21/11/1990"), 175, 62, 110, "");
 			Personne eft1 = new Personne("DUMOND", "Noé", Genre.Masculin, new SimpleDateFormat("dd/MM/yyyy").parse("18/10/2014"), 140, 30, 100, "");
 			Personne eft2 = new Personne("DUMOND", "Zoé", Genre.Feminin, new SimpleDateFormat("dd/MM/yyyy").parse("11/05/2017"), 130, 25, 100, "");
-						
-			Utilisateur user = new Utilisateur("DUMOND", "Vincent", Genre.Masculin, new SimpleDateFormat("dd/MM/yyyy").parse("25/12/1988"), 192, 86, 100, "", "vdumond@gmail.com", "azerty");
+			
+			//Hachade du password
+			String str = "azertyuiop";
+	        MessageDigest msg = MessageDigest.getInstance("SHA-256");
+	        byte[] hash = msg.digest(str.getBytes(StandardCharsets.UTF_8));
+
+	        StringBuilder s = new StringBuilder();
+	        for (byte b : hash) {
+	            s.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+	        }
+	        String generatedPwd =s.toString();
+			
+			Utilisateur user = new Utilisateur("DUMOND", "Vincent", Genre.Masculin, new SimpleDateFormat("dd/MM/yyyy").parse("25/12/1988"), 192, 86, 100, "", "vdumond@gmail.com", generatedPwd);
 			
 			personneService.createPersonne(emf, p);
 			personneService.createPersonne(emf, eft1);
