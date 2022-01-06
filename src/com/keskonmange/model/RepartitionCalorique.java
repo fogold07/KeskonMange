@@ -10,7 +10,7 @@ import com.keskonmange.enumeration.TypeRepas;
  * répartition : petit-déjeuner = 20% (2000 kcal), déjeuner = 50% (5000 kcal),
  * diner = 30% (3000 kcal).
  *
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

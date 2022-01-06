@@ -10,7 +10,7 @@ import com.keskonmange.enumeration.TypeContrainte;
  * prennent en compte ces contraintes. Exemple : une personne X est allergique à
  * un ingrédient A et n'aime pas l'ingrédient B.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

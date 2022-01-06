@@ -10,7 +10,7 @@ import com.keskonmange.enumeration.Genre;
 /**
  * Classe qui définit les attributs d'une personne enregistrée dans l'application.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

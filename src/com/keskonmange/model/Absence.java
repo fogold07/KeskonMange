@@ -9,7 +9,7 @@ import com.keskonmange.enumeration.TypeRepas;
  * Classe qui repertorie les absences d'une personne et d'un groupe à un repas
  * donné.
  *
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 @Entity

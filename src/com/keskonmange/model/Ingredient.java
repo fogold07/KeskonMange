@@ -8,7 +8,7 @@ import javax.persistence.*;
 /**
  * Classe qui définit les attributs de l'ingrédient issu de l'API OpenFoodFact.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 @Entity

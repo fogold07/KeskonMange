@@ -15,7 +15,7 @@ import com.keskonmange.enumeration.TypeScore;
  * l'application ne proposera pas des ingrédients dont le nutri-score est
  * inférieur à C.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

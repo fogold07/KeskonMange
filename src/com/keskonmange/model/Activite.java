@@ -7,7 +7,7 @@ import javax.persistence.*;
  * au calcul du besoin calorique hebdomadaire. 
  * Exemple : une personne avec un profil sédentaire aura un coefficient de 1.2.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 @Entity

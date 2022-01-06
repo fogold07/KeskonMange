@@ -10,7 +10,7 @@ import com.keskonmange.enumeration.TypePlat;
  * Classe qui définit un plat constitué d'un ensemble d'ingrédient.
  * Le plat peut être une entrée, un plat principal, etc.
  *
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

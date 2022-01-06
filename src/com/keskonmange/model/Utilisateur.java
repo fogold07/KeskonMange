@@ -10,7 +10,7 @@ import com.keskonmange.enumeration.Genre;
 /**
  * Classe qui définie l'utilisateur ainsi que si oui ou non il est administrateur d'un groupe.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

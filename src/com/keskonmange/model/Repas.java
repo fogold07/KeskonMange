@@ -11,7 +11,7 @@ import com.keskonmange.enumeration.TypeRepas;
  * 
  * Exemple : repas 1 = déjeuner, concerne le plat X du groupe A.
  *
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 

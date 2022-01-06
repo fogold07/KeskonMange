@@ -6,13 +6,12 @@ import javax.persistence.*;
 
 /**
  * Classe qui définit un groupe composé de plusieurs personnes pouvant être des
- * administrateurs ou non.
- * Exemple : dans une famille comoposée de 2 adultes et
- * 2 enfants, le groupe pourra être administré par un seul des deux parents ou par les
- * deux. Les enfants quand à eux seront iditifiés comme simple "personnes" dans le
- * groupe.
+ * administrateurs ou non. Exemple : dans une famille comoposée de 2 adultes et
+ * 2 enfants, le groupe pourra être administré par un seul des deux parents ou
+ * par les deux. Les enfants quand à eux seront iditifiés comme simple
+ * "personnes" dans le groupe.
  * 
- * @author Christian Ingold, Jean-Philippe Fransisco, Steeve Dombald.
+ * @author Christian Ingold, Jean-Philippe Francisco, Steeve Dombald.
  *
  */
 
@@ -31,11 +30,13 @@ public class Groupe {
 	private String urlPhoto;
 
 	@ManyToMany
-	@JoinTable(name = "ADMINISTRATEUR", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "utilisateur_id", referencedColumnName = "id"))
+	@JoinTable(name = "ADMINISTRATEUR", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), 
+							inverseJoinColumns = @JoinColumn(name = "utilisateur_id", referencedColumnName = "id"))
 	private Set<Utilisateur> administrateurs;
 
 	@ManyToMany
-	@JoinTable(name = "GROUPE_PERSONNE", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "personne_id", referencedColumnName = "id"))
+	@JoinTable(name = "GROUPE_PERSONNE", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), 
+								inverseJoinColumns = @JoinColumn(name = "personne_id", referencedColumnName = "id"))
 	private Set<Personne> groupePersonnes;
 
 	@OneToMany(mappedBy = "absenceGroupe")
@@ -45,7 +46,8 @@ public class Groupe {
 	private Set<RepartitionCalorique> repartitionCaloriques;
 
 	@ManyToMany
-	@JoinTable(name = "GROUPE_SCORE", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "score_id", referencedColumnName = "id"))
+	@JoinTable(name = "GROUPE_SCORE", joinColumns = @JoinColumn(name = "groupe_id", referencedColumnName = "id"), 
+								inverseJoinColumns = @JoinColumn(name = "score_id", referencedColumnName = "id"))
 	private Set<Score> groupeScores;
 
 	@OneToMany(mappedBy = "repasGroupe")
@@ -131,6 +133,5 @@ public class Groupe {
 	public void setRepas(Set<Repas> repas) {
 		this.repas = repas;
 	}
-
 
 }
